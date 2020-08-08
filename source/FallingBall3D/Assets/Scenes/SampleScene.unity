@@ -292,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff5a146d677fa54ba6c59d66dea3afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Port: 10101
+  m_BufferSize: 32
 --- !u!4 &1139385073
 Transform:
   m_ObjectHideFlags: 0
