@@ -8,22 +8,25 @@ server.listen(1)
 
 print("Server started at port", port)
 
-client, ip = server.accept()
-
-print("Client connected:", ip)
-
 while True:
-    data = client.recv(256)
-    if (not data):
-        break
+    client, ip = server.accept()
 
-    s = data.decode('utf-8')
+    print("Client connected:", ip)
 
-    if s == 'exit':
-        break
+    while True:
+        data = client.recv(256)
+        if (not data):
+            break
 
-    if s == 'yaw':
-        d = random.randint(-10,10)
-        client.send(str(d).encode('utf-8'))
+        s = data.decode('utf-8')
 
-client.close()
+        if s == 'exit':
+            break
+
+        if s == 'yaw':
+            d = random.randint(-10, 10)
+            client.send(str(d).encode('utf-8'))
+
+    client.close()
+    print("Client disconnected")
+
